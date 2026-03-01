@@ -19,6 +19,7 @@ func NewClient(token string, url string) *Client {
 	restyClient.SetHeader("Authorization", "Bearer "+token)
 	restyClient.SetHeader("User-Agent", "napcat-http-go-client/1.0")
 	restyClient.SetHeader("Accept", "application/json")
+	restyClient.SetRetryCount(10)
 
 	return &Client{
 		client: restyClient,
